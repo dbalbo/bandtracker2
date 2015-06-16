@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: 'program_name_'development
+
+test:
+  adapter: postgresql
+  database: 'program_name'_test
