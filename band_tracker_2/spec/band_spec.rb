@@ -3,7 +3,7 @@ require('spec_helper')
 
   describe Band do
   describe('#venues') do
-    it('returns all venues at which the a band will play') do
+    it('returns all venues at which the  band will play') do
       venue1 = Venue.create(description: "The Box", address: "111 Edmond Rd. Portland, OR 90210")
       venue2 = Venue.create(description: "Ziggy's", address: "222 Edmond Rd. Lookout, WV 90210")
       band = Band.create(name: "SmithJonez", genre: "Screamo", venue_ids: [venue1.id(), venue2.id()])
