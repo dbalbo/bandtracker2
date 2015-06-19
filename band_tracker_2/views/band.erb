@@ -1,0 +1,62 @@
+<div class='container-fluid'>
+
+	<h1><%= @band.name %></h1>
+
+	<div class='row'>
+		<div class='col-md-6'>Update the Band Name:>
+			<form action='/bands/<%= @band.id %>' method='post'>
+				<input name='_method' type='hidden' value='patch'>
+				<div class='form-group'>
+					<input name='name' id='name' type='text'>
+				</div>
+				<button type="submit" class='btn btn-info'>Update Band!</button>
+			</form>
+		</div>
+
+		<div class='col-md-6'>Delete Band
+		 <form action='/bands/<%= @band.id %>' method='post'>
+		   <input name='_method' type='hidden' value='delete'>
+		   <div class='form-group'>
+		   		<button type='submit' class='btn btn-danger'>Delete Band!</button>
+		   </div>
+		  </form>
+		 </div>
+	</div>
+</div>
+
+<div class"container">
+  <h2>Venues This Band Has Played:</h2>
+  <h5>(check the boxes that a band has played in)</h5>
+
+  <% if @venues.any? %>
+   <form action='/bands<%= @band.id %>' method='post'>
+   	<input type='hidden' name='_method' value='patch'>
+
+   	<% @venues.each do |venue| %>
+   	<div class='checkbox'>
+   		<label>
+   			<input type='checkbox' id='venue.id %>' name='venue_ids' value='<%= venue.id %>'><%= venue.description %>
+   		</label>
+   	</div>		
+   	<% end %>
+
+   	<button type='submit' class='btn btn-info'> Add Venue</button>
+   </form>
+   <% end %>
+  
+
+  <% if @band.venues().any?() %>
+	<h3>Here are all the venues with this band:</h3>
+
+	<ul>
+		  <% @band.venues().each() do |venue| %>
+		  <li><%= venue.location() %></li>
+		  <% end %>
+	</ul>
+	<% else %>
+		<p>There are no venues yet!</p>
+	<% end %>
+  </div>		
+
+<a href="/">Return to Main Page</a>
+
